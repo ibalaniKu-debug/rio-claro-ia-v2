@@ -1,0 +1,6 @@
+
+flask
+gunicorn
+azure-identity
+azure-ai-projects
+openai

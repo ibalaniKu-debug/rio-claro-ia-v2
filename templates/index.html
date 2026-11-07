@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Río Claro IA 2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>💧 Río Claro IA</h2>
+        <p>Inteligencia empresarial</p>
+        <nav>
+            <button onclick="mostrarSeccion('inicio')">Inicio</button>
+            <button onclick="mostrarSeccion('asistente')">Asistente IA</button>
+            <button onclick="mostrarSeccion('facturas')">Facturas</button>
+        </nav>
+        <div class="historial-chat">
+            <button type="button" onclick="nuevaConversacion()">
+                ＋ Nueva conversación
+            </button>
+
+            <h3>Historial</h3>
+
+            <div id="listaHistorial"></div>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Panel de Río Claro</h1>
+            <span>Conectado a Microsoft Foundry</span>
+        </header>
+
+        <section id="inicio">
+            <div class="bienvenida">
+                <h2>Bienvenido a Río Claro IA 2.0</h2>
+                <p>Consulta documentos, inventarios y procesos de facturación.</p>
+            </div>
+            <div class="tarjetas">
+                <div class="tarjeta" onclick="mostrarSeccion('asistente')">
+                    <h3>Asistente inteligente</h3>
+                    <p>Respuestas basadas en documentos empresariales.</p>
+                </div>
+                <div class="tarjeta" onclick="mostrarSeccion('facturas')">
+                    <h3>Facturación</h3>
+                    <p>Consulta facturas mediante inteligencia artificial.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="asistente" class="oculto">
+            <h2>Asistente virtual Río Claro</h2>
+            <div id="mensajes" class="mensajes">
+                <div class="mensaje bot">
+                    ¡Hola! Soy Río Claro IA. ¿En qué puedo ayudarte?
+                </div>
+            </div>
+            <div class="controles-voz">
+                <button type="button" id="botonVoz" onclick="activarVoz()">
+                    🔇 Voz desactivada
+                </button>
+
+                <button type="button" onclick="escucharPregunta()">
+                    🎤 Hablar
+                </button>
+            </div>
+            <form id="formChat" class="formulario">
+                <input id="pregunta" placeholder="Escribe tu pregunta..." required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section id="facturas" class="oculto">
+            <h2>Consultas de facturación</h2>
+            <p>Pregunta por facturas, notas de crédito o políticas de facturación.</p>
+            <button onclick="consultarFactura()">
+                Consultar factura RC-1001
+            </button>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
